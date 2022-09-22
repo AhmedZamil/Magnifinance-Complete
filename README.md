@@ -1,7 +1,9 @@
 # Recruiting a Full-Stack Developer - Technical Challenge
 
- ## Setup shortcut 
+ ## Setup shortcut [Checked with different machine]
+It's Just to setup to all done Now..
     1. Run the setup.bat file
+    2. After Running just browse http://localhost:5000/ ( when in bat file command prompt showing Building...)
     
 [It will ensure navigate & install dependency for angular as well as for dotnet restore, installing dotnet ef ,add migration , update database , build & run the application with few Seed data]
 
@@ -45,13 +47,15 @@ Yes It's implemented with all Asking requerments
 - List the subjects and show the teacher information, number of students and their grades for each subject
 - List the students and their respectives grades of the subject
 # Technologies
- - Whole project built on Latest ASP.NET Core 6.0 
+ - Whole project built on Latest .NET Core 5.0 
  - EF 6
+ - SignalR [For .NET Core]
  - ASP.NET MVC 6 Ensured
  - Angular 11.2
  - Local DB [MS Sql Server]
 # Good to share 
   - I have tried to have the best possible impression , thats why took time to polish & beutify
+  -  SignalR Implemented [Nav bar top right corner Magnifinance User : extra, Complete CRUD Operation is there & if you add, Edit ,Delete User There will be broadcast       Notification & Notification count will be in nabvar ring-bell sign ]
   - Tried to maintain S O L I D
      - Interface are segragated
      - rather than a whole Scope tried to use one responsibility for single scope
@@ -64,9 +68,12 @@ Yes It's implemented with all Asking requerments
 
 
 
-## Prerequisites
+# Prerequisites
 
-* [.NET Core 6.0 SDK] (https://dotnet.microsoft.com/download)
+## Only [.NET Core 5.0 SDK] (https://dotnet.microsoft.com/download) has to be present to Run
+## After running setup file , give it some time [after setting up npm-EF-Db-Seed data When it shows "Building" just browse http://localhost:5000/]
+
+If you want to open in developer mode 
 
 * [Visual Studio 2022] (https://visualstudio.microsoft.com/vs/)
 
@@ -115,22 +122,30 @@ This is how:
  step 13: Application should be in web browser
  
  
- ## Navigation through the application
+ # Navigation through the application
  
-  # Home : You will see a landing page , click the [Enter] button - student course management system will be with navigation bar
+  ## Home : You will see a landing page , click the [Enter] button - student course management system will be with navigation bar
   
-  # Courses : You will have a nice Course layout page
+  ## Navigation bar (SignalR Activated) : top right corner "Magnifinance User".Click to see complete implementation
+         - List View of User
+         - Can Search User
+         - Can Add - Edit -Delete User
+         With every Add-Delete-Edit operation a broadcast message will be poped up in navbar bell-ring icon
+         - if you click on the icon in modal you can see the details of Notification Message
+         -I hope you will find SignalR popular use Completely with CRUD operation for sample.
+  
+  ## Courses : You will have a nice Course layout page
        - all courses are in seperate box (With requested Information view)
        - Add Course Button will act to add the new course and navigate back to course
-   # Subject : You will have a layout of Subjects 
+   ## Subject : You will have a layout of Subjects 
         - [Each are in seperate box, subject can be filtered with sub menu]
         - Subject box are sepeerated with requered information 
         - in Box [Show Grade Button will show you the Grades]
         - can navigate back to subject with navigator
         - Add subject button will Guide you to add subject
-   # Teacher : Layout with Teacher Boxes seperated list
+   ## Teacher : Layout with Teacher Boxes seperated list
         - Add teacher will guide you to
-   # Student : Will show  List of Student with photo 
+   ## Student : Will show  List of Student with photo 
           - will show you the requerments for this challange
           - Give Grade will lead you to give a grade
           - Add student will lead you to Crud
