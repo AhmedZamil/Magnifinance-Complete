@@ -1,4 +1,12 @@
-﻿a.navbar-brand {
+﻿.signalr{
+    color: rgb(38 234 162)!important;
+}
+
+.headline{
+    background-color: #2e2332 !important;
+}
+
+a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
@@ -32,9 +40,9 @@ html {
     width: 21px;
     height: 21px;
     padding: 4px;
-    background: #fff;
-    border: 1px solid darkgrey;
-    color: red;
+    background: rgb(38 234 162);
+    border: 1px solid rgb(38 234 162);
+    color: white;
     text-align: center;
     margin-left: -7px;
     font: 10px Arial, sans-serif;
