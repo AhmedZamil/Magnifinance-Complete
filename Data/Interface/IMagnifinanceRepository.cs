@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DutchTreat.Data.Entities;
 using Magnifinance.Data.Entities;
 using Magnifinance.ViewModels;
@@ -13,6 +14,7 @@ namespace Magnifinance.Data.Interface
         IEnumerable<Course> GetAllCourses();
         SubjectStudentViewModel GetStudentOfAllSubjectsByCourseId(int courseId);
 
+        Task<Course> UpdateCourse(string id, Course course);
         void AddEntity(object entity);
         bool SaveAll();
     }

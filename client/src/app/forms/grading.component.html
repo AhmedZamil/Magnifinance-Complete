@@ -24,8 +24,8 @@
                             <label for="studentId">Student</label>
                             <select class="form-control" id="studentId" 
                                     name="studentId" #studentId="ngModel" [(ngModel)]="subjectgrade.studentId">
-                                <option *ngFor="let st of studentService.students">
-                                    {{ st.studentId }}
+                                <option *ngFor="let st of studentService.students" value="{{ st.studentId }}">
+                                    {{ st.firstName }}
                                 </option>
                             </select>
                         </div>
@@ -33,8 +33,8 @@
                             <label for="subjectId">Subject</label>
                             <select class="form-control" id="subjectId" #subjectId="ngModel"
                                     name="subjectId" [(ngModel)]="subjectgrade.subjectId">
-                                <option *ngFor="let su of subjectService.subj">
-                                    {{ su.subjectId }}
+                                <option *ngFor="let su of subjectService.subj" value="{{ su.subjectId }}">
+                                    {{ su.subjectName }}
                                 </option>
                             </select>
                         </div>

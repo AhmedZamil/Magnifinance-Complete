@@ -77,8 +77,13 @@ namespace Magnifinance.Controllers
                     SubjectGradeViewModel model = new SubjectGradeViewModel();
                     model.SubjectId = subjectGrade.SubjectId;
                     model.StudentId= subjectGrade.StudentId;
-                    model.Grade = subjectGrade.Grade;
                     model.GradePoint = subjectGrade.GradePoint;
+                    if (model.GradePoint > 1 && model.GradePoint < 2) model.Grade = "C";
+                    if (model.GradePoint > 2 && model.GradePoint <= 2) model.Grade = "B";
+                    if (model.GradePoint > 3 && model.GradePoint <= 3.5) model.Grade = "A";
+                    if (model.GradePoint > 3.5 && model.GradePoint <= 4) model.Grade = "A+";
+
+                   
                     model.SubjectGradeId = subjectGrade.SubjectGradeId;
 
                     var presentGrade = _repository.GetSubjectPresentGradeForStudent(subjectGrade.StudentId, subjectGrade.SubjectId);

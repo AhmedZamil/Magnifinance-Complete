@@ -39,8 +39,8 @@
                             <label for="courseId">Course</label>
                             <select class="form-control" id="courseId" #courseId="ngModel"
                                     name="courseId" [(ngModel)]="subject.courseId">
-                                <option *ngFor="let c of courseService.courses">
-                                    {{ c.courseId }}
+                                <option *ngFor="let c of courseService.courses" value="{{ c.courseId }}">
+                                    {{ c.title }}
                                 </option>
                             </select>
                         </div>

@@ -12,7 +12,7 @@ import { EmployeeService } from './employee.service';
     styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-    pageTitle = 'Employee List';
+    pageTitle = 'Magnifinace User List';
     filteredEmployees: Employee[] = [];
     employees: Employee[] = [];
     errorMessage = '';
@@ -39,7 +39,7 @@ export class EmployeeListComponent implements OnInit {
 
         const connection = new signalR.HubConnectionBuilder()
             .configureLogging(signalR.LogLevel.Information)
-            .withUrl(environment.baseUrl + 'notify')
+            .withUrl('/notify')
             .build();
 
         connection.start().then(function () {

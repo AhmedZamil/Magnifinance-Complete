@@ -6,9 +6,8 @@ import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
 
 @Component({
-    selector: 'app-employee-edit',
-    templateUrl: './employee-edit.component.html',
-    styleUrls: ['./employee-edit.component.css']
+    selector: "app-employee-edit",
+    templateUrl: "employee-edit.component.html"
 })
 export class EmployeeEditComponent implements OnInit, OnDestroy {
     @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];

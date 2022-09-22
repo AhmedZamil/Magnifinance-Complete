@@ -1,7 +1,7 @@
 ﻿<header>
     <nav class=' headline navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow '>
         <div class="container">
-            <a class="navbar-brand signalr" [routerLink]='["/"]'>SignalR <span class="fa fa-circle-o-notch"></span></a>
+            <a class="navbar-brand signalr">SignalR <span class="fa fa-circle-o-notch"></span> Activated</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
                     aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
                 <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
                         <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
                     </li>-->
                     <li class="nav-item" [routerLinkActive]='["link-active"]'>
-                        <a class="signalr nav-link text-dark" [routerLink]='["/employees"]'>Magnifinace Admin</a>
+                        <a class="signalr nav-link text-warning" [routerLink]='["/employees"]'><span class="fa fa-list"></span> Magnifinace Users</a>
                     </li>
                     <i class="fa fa-bell  has-badge" style="cursor: pointer;" (click)="openModal()"></i>
                     <div class="numberCircle" *ngIf="notification && notification?.count>0" style="cursor: pointer;"

@@ -1,124 +1,157 @@
-﻿<div class="card">
-    <div class="card-header">
-        {{pageTitle}}
+﻿<nav-bar-view></nav-bar-view>
+<app-nav-menu></app-nav-menu>
+
+<section class="signup-section spad">
+    <div class="signup-bg set-bg" data-setbg="../../img/signup-bg.jpg" style="background-image: url('../../img/authors/7.jpg');"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="signup-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Add Magnifinance User</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                    </div>
+                    <!-- signup form -->
+                    <!--<form class="signup-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your E-mail">
+                        <input type="text" placeholder="Your Phone">
+                        <label for="v-upload" class="file-up-btn">Upload Course</label>
+                        <input type="file" id="v-upload">
+                        <button class="site-btn">Search Couse</button>
+                    </form>-->
+                    <div class="alert alert-danger"
+                         *ngIf="errorMessage">
+                        {{errorMessage}}
+                    </div>
+
+                    <form class="signup-form" novalidate
+                          (ngSubmit)="saveEmployee()"
+                          [formGroup]="employeeForm">
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-3 col-form-label"
+                                   for="employeeNameId"> Name</label>
+                            <div class="col-md-7">
+                                <input class="form-control"
+                                       id="employeeNameId"
+                                       type="text"
+                                       placeholder="Name (required)"
+                                       formControlName="name"
+                                       [ngClass]="{'is-invalid': displayMessage.name }" />
+                                <span class="invalid-feedback">
+                                    {{displayMessage.name}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-3 col-form-label"
+                                   for="citynameId">City</label>
+                            <div class="col-md-7">
+                                <input class="form-control"
+                                       id="citynameid"
+                                       type="text"
+                                       placeholder="Cityname (required)"
+                                       formControlName="cityname"
+                                       [ngClass]="{'is-invalid': displayMessage.cityname}" />
+                                <span class="invalid-feedback">
+                                    {{displayMessage.cityname}}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-3 col-form-label"
+                                   for="addressId">Address</label>
+                            <div class="col-md-7">
+                                <input class="form-control"
+                                       id="addressId"
+                                       type="text"
+                                       placeholder="Address"
+                                       formControlName="address" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-3 col-form-label"
+                                   for="genderId">Gender</label>
+                            <div class="col-md-7">
+                                <select id="genderId" formControlName="gender" class="form-control">
+                                    <option value="" disabled selected>Select an Option</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-3 col-form-label"
+                                   for="companyId">Company</label>
+                            <div class="col-md-7">
+                                <input class="form-control"
+                                       id="companyId"
+                                       type="text"
+                                       placeholder="Company"
+                                       formControlName="company" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label class="col-md-3 col-form-label"
+                                   for="designationId">Designation</label>
+                            <div class="col-md-7">
+                                <input class="form-control"
+                                       id="designationId"
+                                       type="text"
+                                       placeholder="Designation"
+                                       formControlName="designation" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="btn btn-outline-success m-3"
+                                   type="submit"
+                                   tyle="padding-right:5px"
+                                   [title]="employeeForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                                   [disabled]="!employeeForm.valid" value="Add" />
+
+                            <input class="btn btn-outline-warning" *ngIf="pageTitle != 'Add Employee'"
+                                   style="width:80px"
+                                   type="button" value="Delete"
+                                   title="Delete this product"
+                                   (click)="deleteEmployee()" />
+
+                            <a [routerLink]="['/employees']" class="btn btn-default">Cancel</a>
+                        </div>
+
+                        <!--<div class="form-group row mb-2">
+                            <div class="offset-md-2 col-md-6">
+                                <button class="site-btn"
+                                        type="submit"
+                                        [title]="employeeForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                                        [disabled]="!employeeForm.valid">
+                                    Save
+                                </button>
+                                <button class="site-btn"
+                                        type="button"
+                                        title="Cancel your edits"
+                                        [routerLink]="['/employees']">
+                                    Cancel
+                                </button>
+                                <button class="btn btn-outline-warning" *ngIf="pageTitle != 'Add Employee'"
+                                        style="width:80px"
+                                        type="button"
+                                        title="Delete this product"
+                                        (click)="deleteEmployee()">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>-->
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="card-body">
-        <form novalidate
-              (ngSubmit)="saveEmployee()"
-              [formGroup]="employeeForm">
-
-            <div class="form-group row mb-2">
-                <label class="col-md-3 col-form-label"
-                       for="employeeNameId">Employee Name</label>
-                <div class="col-md-7">
-                    <input class="form-control"
-                           id="employeeNameId"
-                           type="text"
-                           placeholder="Name (required)"
-                           formControlName="name"
-                           [ngClass]="{'is-invalid': displayMessage.name }" />
-                    <span class="invalid-feedback">
-                        {{displayMessage.name}}
-                    </span>
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md-3 col-form-label"
-                       for="citynameId">City</label>
-                <div class="col-md-7">
-                    <input class="form-control"
-                           id="citynameid"
-                           type="text"
-                           placeholder="Cityname (required)"
-                           formControlName="cityname"
-                           [ngClass]="{'is-invalid': displayMessage.cityname}" />
-                    <span class="invalid-feedback">
-                        {{displayMessage.cityname}}
-                    </span>
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md-3 col-form-label"
-                       for="addressId">Address</label>
-                <div class="col-md-7">
-                    <input class="form-control"
-                           id="addressId"
-                           type="text"
-                           placeholder="Address"
-                           formControlName="address" />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md-3 col-form-label"
-                       for="genderId">Gender</label>
-                <div class="col-md-7">
-                    <select id="genderId" formControlName="gender" class="form-control">
-                        <option value="" disabled selected>Select an Option</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md-3 col-form-label"
-                       for="companyId">Company</label>
-                <div class="col-md-7">
-                    <input class="form-control"
-                           id="companyId"
-                           type="text"
-                           placeholder="Company"
-                           formControlName="company" />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <label class="col-md-3 col-form-label"
-                       for="designationId">Designation</label>
-                <div class="col-md-7">
-                    <input class="form-control"
-                           id="designationId"
-                           type="text"
-                           placeholder="Designation"
-                           formControlName="designation" />
-                </div>
-            </div>
-
-            <div class="form-group row mb-2">
-                <div class="offset-md-2 col-md-6">
-                    <button class="btn btn-primary mr-3"
-                            style="width:80px;"
-                            type="submit"
-                            [title]="employeeForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
-                            [disabled]="!employeeForm.valid">
-                        Save
-                    </button>
-                    <button class="btn btn-outline-secondary mr-3"
-                            style="width:80px;"
-                            type="button"
-                            title="Cancel your edits"
-                            [routerLink]="['/employees']">
-                        Cancel
-                    </button>
-                    <button class="btn btn-outline-warning" *ngIf="pageTitle != 'Add Employee'"
-                            style="width:80px"
-                            type="button"
-                            title="Delete this product"
-                            (click)="deleteEmployee()">
-                        Delete
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <div class="alert alert-danger"
-         *ngIf="errorMessage">
-        {{errorMessage}}
-    </div>
-</div>   
+</section>

@@ -1,7 +1,7 @@
 ﻿import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Observable, of, throwError } from "rxjs";
+import { catchError, map } from "rxjs/operators";
 import { ICourse, ICreateCourse } from "../shared/Course";
 import * as signalR from '@aspnet/signalr'; 
 
@@ -86,6 +86,66 @@ export class Course {
     }
 
 
+    getCourses(): Observable<ICourse[]> {
+        return this.http.get<ICourse[]>('/api/course')
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
 
+    getEmployee(id: string): Observable<ICourse> {
+        if (id === '') {
+            return of(this.initializeCourse());
+        }
+        const url = `$/api/course/${id}`;
+        return this.http.get<ICourse>(url)
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
+
+    deleteCourse(id: string): Observable<{}> {
+        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        const url = `$/api/course/${id}`;
+        return this.http.delete<ICourse>(url, { headers: headers })
+            .pipe(
+                catchError(this.handleError)
+            );
+    }
+
+    updateCourse(course: ICourse): Observable<ICourse> {
+        debugger
+        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        const url = `$/api/course/${course.courseId}`;
+        return this.http.put<ICourse>(url, course, { headers: headers })
+            .pipe(
+                map(() => course),
+                catchError(this.handleError)
+            );
+    }
+
+    private handleError(err) {
+        let errorMessage: string;
+        if (err.error instanceof ErrorEvent) {
+            errorMessage = `An error occurred: ${err.error.message}`;
+        } else {
+            errorMessage = `Backend returned code ${err.status}: ${err.body.error}`;
+        }
+        console.error(err);
+        return throwError(errorMessage);
+    }
+
+    private initializeCourse(): ICourse {
+        return {
+            courseId: 0,
+            courseName: "",
+            title: "",
+            studentCourses: [],
+            subjects: [],
+            totalTeachers: 0,
+            totalStudents: 0,
+            averageOfGrades: 0
+        };
+    }
 
 }

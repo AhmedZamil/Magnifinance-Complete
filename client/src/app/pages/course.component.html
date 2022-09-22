@@ -4,9 +4,102 @@
 <!-- Page info -->
 <div class="page-info-course set-bg" data-setbg="../../img/page-bg/1.jpg" style="background-image: url('../../img/courses/1.jpg');">
 </div>
-<a [routerLink]="['/addcourse']" class="site-btn addcourse-btn">Add Course</a>
+<!--<a [routerLink]="['/addcourse']" class="site-btn addcourse-btn">Add Course</a>-->
 
 <div id="status"></div>
+<!-- search section -->
+<section class="search-section">
+    <div class="container">
+        <div class="search-warp">
+            <div class="section-title text-white">
+                <h2>Search your course</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <!-- search form -->
+                    <div class="course-search-form">
+                        <input type="text" (blur)="performFilter(listFilter)" [(ngModel)]="listFilter" />
+                        <h3>Filtered by: {{listFilter}}</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="course-section">
+    <div class="course-warp">
+
+        <div class="featured-courses">
+            <div class="featured-course course-item">
+                <div class="course-thumb set-bg" data-setbg="../../img/courses/1.jpg" style="background-image: url('../../img/courses/1.jpg'); ">
+                    
+                </div>
+                <div class="row">
+                    <div class="col-lg-9 offset-lg-3 pl-0">
+                        <div class="course-info">
+                            <div class="course-text">
+                                <div class="fet-note">Magnifinace University Courses</div>
+                                <div class="row" style="margin-bottom:15px;">
+                                    <!--<div class="col-md-2">Filter by:</div>
+                                    <div class="col-md-4">
+                                        <input type="text" (blur)="performFilter(listFilter)" [(ngModel)]="listFilter" />
+                                    </div>-->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-4">
+                                        <a [routerLink]="['/addcourse']" class="site-btn addcourse-btn" style="float: right;">Add Course</a>
+                                    </div>
+                                </div>
+                                <!--<div class="row" *ngIf="listFilter">
+                                    <div class="col-md-6">
+                                        <h4>Filtered by: {{listFilter}}</h4>
+                                    </div>
+                                </div>-->
+                                <div class="table-responsive">
+                                    <table class="table mb-0" *ngIf="courseService.courses && courseService.courses.length">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Title</th>
+                                                <th>Teachers</th>
+                                                <th>Students</th>
+                                                <th>Average Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let p of filteredCourses">
+                                                <td>
+                                                    <a [routerLink]="['/course', p.id]">
+                                                        {{ p.courseName }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ p.title }}</td>
+                                                <td>{{ p.totalTeachers }}</td>
+                                                <td>{{ p.totalStudents}} </td>
+                                                <td>{{ p.averageOfGrades}} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="course-author">
+                                <div class="ca-pic set-bg" data-setbg="../../img/authors/1.jpg" style="background-image: url('../../img/authors/1.jpg'); "></div>
+                                <p>Magnifinace University, <span>Admin User</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- search section end -->
 <!-- Page info end -->
 <!-- search section -->
 <!-- search section end -->
@@ -23,7 +116,7 @@
     <div class="row course-items-area">
         <!-- course -->
 
-        <div class="mix col-lg-3 col-md-4 col-sm-6 web" *ngFor="let p of course.courses">
+        <div class="mix col-lg-3 col-md-4 col-sm-6 web" *ngFor="let p of courseService.courses">
             <div class="course-item">
                 <div class="course-thumb" data-setbg="../../img/courses/2.jpg" style="background-image: url('../../img/courses/{{p.courseId}}.jpg');">
                     <div class="price">Active</div>
@@ -47,7 +140,7 @@
 
         </div>
 
-        <div class="mix col-lg-3 col-md-4 col-sm-6 finance" *ngFor="let p of course.courses">
+        <div class="mix col-lg-3 col-md-4 col-sm-6 finance" *ngFor="let p of courseService.courses">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/2.jpg" style="background-image: url('../../img/courses/{{p.courseId +1}}.jpg');">
                     <div class="price">Active</div>
@@ -73,10 +166,10 @@
     </div>
 
 
-    <div class="row course-items-area">
+    <!--<div class="row course-items-area">-->
 
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/2.jpg">
                     <div class="price">Active</div>
@@ -93,9 +186,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 web">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/3.jpg">
                     <div class="price">Active</div>
@@ -112,9 +205,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 photo">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/4.jpg">
                     <div class="price">Active</div>
@@ -131,9 +224,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/5.jpg">
                     <div class="price">Active</div>
@@ -150,9 +243,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 design">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 design">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/6.jpg">
                     <div class="price">Active</div>
@@ -169,9 +262,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 web">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 web">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/7.jpg">
                     <div class="price">Price: $15</div>
@@ -188,9 +281,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- course -->
-        <div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+        <!--<div class="mix col-lg-3 col-md-4 col-sm-6 photo">
             <div class="course-item">
                 <div class="course-thumb set-bg" data-setbg="../../img/courses/8.jpg">
                     <div class="price">Price: $15</div>
@@ -208,6 +301,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
-<!-- course section end -->
+
+
+
+<!-- List View -->
+
+
+

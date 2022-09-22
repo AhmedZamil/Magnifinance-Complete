@@ -32,8 +32,8 @@ namespace Magnifinance.Data.Repository
             {
                 _logger.LogInformation("GetAllProducts was called...");
 
-                return _ctx.Courses.Include(c=>c.StudentCourses).ThenInclude(sc=>sc.Student)
-                    .Include(s => s.Subjects).ThenInclude(t=>t.SubjectTeacher).OrderBy(p => p.Title)
+                return _ctx.Courses.Include(c => c.StudentCourses).ThenInclude(sc => sc.Student)
+                    .Include(s => s.Subjects).ThenInclude(t => t.SubjectTeacher).OrderBy(p => p.Title)
                            .ToList();
 
 
@@ -51,8 +51,8 @@ namespace Magnifinance.Data.Repository
             {
                 _logger.LogInformation("GetAllProducts was called...");
 
-               Course course =  _ctx.Courses.Where(co=>co.CourseId == courseId).Include(c => c.StudentCourses).ThenInclude(sc => sc.Student)
-                    .Include(s => s.Subjects).ThenInclude(t => t.SubjectTeacher).OrderBy(p => p.Title).FirstOrDefault();
+                Course course = _ctx.Courses.Where(co => co.CourseId == courseId).Include(c => c.StudentCourses).ThenInclude(sc => sc.Student)
+                     .Include(s => s.Subjects).ThenInclude(t => t.SubjectTeacher).OrderBy(p => p.Title).FirstOrDefault();
 
 
                 List<int> studentList = new List<int>();
@@ -84,7 +84,7 @@ namespace Magnifinance.Data.Repository
                 }
 
 
-               
+
                 IEnumerator enumeratorS = (course.Subjects).GetEnumerator();
                 try
                 {
@@ -131,5 +131,47 @@ namespace Magnifinance.Data.Repository
             _ctx.Add(entity);
         }
 
+        private bool CourseExists(string id)
+        {
+            return _ctx.Employee.Any(e => e.Id == id);
+        }
+
+        public async Task<Course> UpdateCourse(string id, Course course)
+        {
+
+            if (string.IsNullOrEmpty(id) || Int32.Parse(id) != course.CourseId)
+            {
+                return null;
+            }
+
+
+            _ctx.Entry(course).State = EntityState.Modified;
+
+            //Notification notification = new Notification()
+            //{
+            //    EmployeeName = course.Name,
+            //    TranType = "Edit"
+            //};
+            //_ctx.Notification.Add(notification);
+
+            try
+            {
+                await _ctx.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CourseExists(id))
+                {
+                    return null;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return course;
+        }
     }
+
 }
