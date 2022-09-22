@@ -21,7 +21,7 @@ call npm install && (
     ) || echo composer install failed
 ) || echo Nodejs install failed
 
-call npm build
+call ng build
 echo Current Directry
 %cd% 
 cd..
