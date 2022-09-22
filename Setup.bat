@@ -35,7 +35,7 @@ echo  packages build successfully
 
 dotnet ef --help
 
-dotnet tool install dotnet-ef -g
+dotnet tool install --global dotnet-ef --version 5.0.1
 
 dotnet ef --help
 
