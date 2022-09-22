@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="client\src\app\signalr\employee-detail.component.ts" />
+    <None Remove="client\src\app\signalr\employee-edit.component.ts" />
+    <None Remove="client\src\app\signalr\employee-list.component.ts" />
+    <None Remove="client\src\app\signalr\employee.service.ts" />
+    <None Remove="client\src\app\signalr\employee.ts" />
+    <None Remove="client\src\app\signalr\environment.ts" />
+    <None Remove="client\src\app\signalr\modal.component.ts" />
+    <None Remove="client\src\app\signalr\modal.service.ts" />
+    <None Remove="client\src\app\signalr\nav-menu.component.ts" />
+    <None Remove="client\src\app\signalr\notification.service.ts" />
+    <None Remove="client\src\app\signalr\notification.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\img\students\" />
   </ItemGroup>
@@ -25,6 +39,20 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="client\src\app\signalr\employee-detail.component.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\employee-edit.component.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\employee-list.component.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\employee.service.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\employee.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\environment.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\modal.component.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\modal.service.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\nav-menu.component.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\notification.service.ts" />
+    <TypeScriptCompile Include="client\src\app\signalr\notification.ts" />
   </ItemGroup>
 
 </Project>

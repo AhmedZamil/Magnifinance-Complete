@@ -76,6 +76,15 @@ namespace Magnifinance
 
             services.AddRazorPages();
 
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                .WithOrigins("http://localhost:4200");
+            }));
+
             services.AddSignalR();
         }
 
@@ -101,9 +110,14 @@ namespace Magnifinance
 
             //app.UseSignalR(routes => routes.MapHub<CoffeeHub>("/coffeehub"));
 
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapHub<UniversityHub>("/universityhub");
+            //});
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<UniversityHub>("/universityhub");
+                endpoints.MapHub<BroadcastHub>("/notify");
             });
 
             app.UseEndpoints(cfg =>

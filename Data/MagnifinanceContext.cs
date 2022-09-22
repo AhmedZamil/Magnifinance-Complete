@@ -29,6 +29,9 @@ namespace Magnifinance.Data
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<SubjectGrade> SubjectGrades { get; set; }
 
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Notification> Notification { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder bldr)
         {

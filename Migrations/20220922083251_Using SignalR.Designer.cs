@@ -4,14 +4,16 @@ using Magnifinance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Magnifinance.Migrations
 {
     [DbContext(typeof(MagnifinanceContext))]
-    partial class MagnifinanceContextModelSnapshot : ModelSnapshot
+    [Migration("20220922083251_Using SignalR")]
+    partial class UsingSignalR
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

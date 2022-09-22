@@ -28,49 +28,49 @@ export class Course {
 
     //useSignalR
 
-    useSignalR(): Observable<void> {
+    //useSignalR(): Observable<void> {
 
     
 
-        this.connection = new signalR.HubConnectionBuilder()
-            .withUrl("/universityhub")
-            .build();
+    //    this.connection = new signalR.HubConnectionBuilder()
+    //        .withUrl("/universityhub")
+    //        .build();
 
-        this.connection.on("ReceiveOrderUpdate", (update) => {
-            const statusDiv = document.getElementById("status");
-            statusDiv.innerHTML = update;
-        }
-        );
+    //    this.connection.on("ReceiveOrderUpdate", (update) => {
+    //        const statusDiv = document.getElementById("status");
+    //        statusDiv.innerHTML = update;
+    //    }
+    //    );
 
-        this.connection.on("NewOrder", function (order) {
-            var statusDiv = document.getElementById("status");
-            statusDiv.innerHTML = "Someone ordered an " + order.product;
-        }
-        );
+    //    this.connection.on("NewOrder", function (order) {
+    //        var statusDiv = document.getElementById("status");
+    //        statusDiv.innerHTML = "Someone ordered an " + order.product;
+    //    }
+    //    );
 
-        this.connection.on("finished", function () {
-            this.connection.stop();
-        }
-        );
+    //    this.connection.on("finished", function () {
+    //        this.connection.stop();
+    //    }
+    //    );
 
-        this.connection.start().then(function () {
-            console.log('SignalR Connected!');
-        })
-            .catch(function (err) {
-                return console.error(err.toString());
-            });
+    //    this.connection.start().then(function () {
+    //        console.log('SignalR Connected!');
+    //    })
+    //        .catch(function (err) {
+    //            return console.error(err.toString());
+    //        });
 
        
 
-        return this.http.get<[]>("/api/course")
-            .pipe(map(data => {
-                this.courses = data;
-                this.connection.invoke("GetUpdateForOrder");
+    //    return this.http.get<[]>("/api/course")
+    //        .pipe(map(data => {
+    //            this.courses = data;
+    //            this.connection.invoke("GetUpdateForOrder");
 
-                /*this.products = data;*/
-               /* return;*/
-            }));
-    }
+    //            /*this.products = data;*/
+    //           /* return;*/
+    //        }));
+    //}
 
     get loginRequired(): boolean {
         return this.token.length === 0 || this.expiration > new Date();

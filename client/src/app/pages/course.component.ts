@@ -16,10 +16,10 @@ export class CoursePage {
                 // do something
             }); // <- Kicks off the operation
 
-        this.course.useSignalR()
-            .subscribe(() => {
-                // do something
-            }); 
+        //this.course.useSignalR()
+        //    .subscribe(() => {
+        //        // do something
+        //    }); 
     }
 
 }

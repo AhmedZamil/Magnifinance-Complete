@@ -11,10 +11,24 @@ import { SubjectPage } from "../pages/subject.component";
 import { SubjectGradePage } from "../pages/subjectgrade.component";
 import { TeacherPage } from "../pages/teacher.component";
 import { AuthActivator } from "../services/authActivator.service";
+import { EmployeeDetailComponent } from "../signalr/employee-detail.component";
+import { EmployeeEditComponent } from "../signalr/employee-edit.component";
+import { EmployeeListComponent } from "../signalr/employee-list.component";
 
 const routes = [
     /*  { path: "", component: ShopPage },*/
-    
+    {
+        path: 'employees',
+        component: EmployeeListComponent
+    },
+    {
+        path: 'employees/:id',
+        component: EmployeeDetailComponent
+    },
+    {
+        path: 'employees/:id/edit',
+        component: EmployeeEditComponent
+    },
     { path: "course", component: CoursePage },
     { path: "grade/:id", component: SubjectGradePage },
     //{ path: "course", component: CoursePage, canActivate: [AuthActivator] },

@@ -48,7 +48,7 @@ namespace Magnifinance.Controllers
             try
             {
                 Order order = new Order();
-                await _universityHub.Clients.All.SendAsync("NewOrder", order);
+                //await _universityHub.Clients.All.SendAsync("NewOrder", order);
                 var courses = _repository.GetAllCourses();
 
                

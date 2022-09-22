@@ -23,6 +23,11 @@ import { AddStudentPage } from './forms/addstudent.component';
 import { GradingPage } from './forms/grading.component';
 import { TeacherPage } from './pages/teacher.component';
 import { AddTeacherPage } from './forms/addteacher.component';
+import { EmployeeListComponent } from './signalr/employee-list.component';
+import { EmployeeEditComponent } from './signalr/employee-edit.component';
+import { EmployeeDetailComponent } from './signalr/employee-detail.component';
+import { ModalComponent } from './signalr/modal.component';
+import { NavMenuComponent } from './signalr/nav-menu.component';
 
 
 @NgModule({
@@ -40,7 +45,12 @@ import { AddTeacherPage } from './forms/addteacher.component';
         SubjectGradePage,
         StudentPage,
         TeacherPage,
-        LoginPage
+        LoginPage,
+        EmployeeListComponent,
+        EmployeeEditComponent,
+        EmployeeDetailComponent,
+        ModalComponent,
+        NavMenuComponent,
     ],
     imports: [
         BrowserModule,
