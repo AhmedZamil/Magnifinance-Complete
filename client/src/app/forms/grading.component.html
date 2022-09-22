@@ -1,0 +1,57 @@
+﻿
+<section class="signup-section spad">
+    <div class="signup-bg set-bg" data-setbg="../../img/signup-bg.jpg"  style="background-image: url('../../img/courses/5.jpg');"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="signup-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Give Grade To Student For a Subject</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                    </div>
+                    <!-- signup form -->
+                    <!--<form class="signup-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your E-mail">
+                        <input type="text" placeholder="Your Phone">
+                        <label for="v-upload" class="file-up-btn">Upload Course</label>
+                        <input type="file" id="v-upload">
+                        <button class="site-btn">Search Couse</button>
+                    </form>-->
+                    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+                    <form class="signup-form" (submit)="addsubjectgrade()">
+                        <div class="form-group">
+                            <label for="studentId">Student</label>
+                            <select class="form-control" id="studentId" 
+                                    name="studentId" #studentId="ngModel" [(ngModel)]="subjectgrade.studentId">
+                                <option *ngFor="let st of studentService.students">
+                                    {{ st.studentId }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subjectId">Subject</label>
+                            <select class="form-control" id="subjectId" #subjectId="ngModel"
+                                    name="subjectId" [(ngModel)]="subjectgrade.subjectId">
+                                <option *ngFor="let su of subjectService.subj">
+                                    {{ su.subjectId }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gradePoint">Grade Point</label>
+                            <input type="text" placeholder="Grade Point" class="form-control" #gradePoint="ngModel" name="gradePoint" [(ngModel)]="subjectgrade.gradePoint" required min="1" />
+                            <div class="text-danger" *ngIf="gradePoint.touched && gradePoint.invalid && gradePoint.errors.required">Required</div>
+                            <div class="text-danger" *ngIf="gradePoint.touched && gradePoint.invalid && gradePoint.errors.min">You Can Give Min Grade 1.0</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="site-btn" value="Add" [disabled]="gradePoint.invalid || subjectId.invalid || studentId.invalid" />
+                            <a routerLink="/student" class="btn btn-default">Cancel</a>
+                            <!--<a routerLink="/course" class="class="site-btn">Cancel</a>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

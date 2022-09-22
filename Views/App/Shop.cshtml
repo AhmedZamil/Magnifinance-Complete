@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Product>
+@section Scripts {
+    <script src="~/client/vendor.js"></script>
+    <script src="~/client/polyfills.js"></script>
+    <script src="~/client/runtime.js"></script>
+    <script src="~/client/main.js" asp-append-version="true"></script>
+
+    <script src="~/js/jquery-3.2.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/mixitup.min.js"></script>
+    <script src="~/js/circle-progress.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/main.js"></script>
+}
+    @section head {
+            <!-- Favicon -->
+    <link href="~/img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+       <base href="/App/Shop" />
+  
+ @*   <link href="~/client/styles.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+}
+
+
+    <the-university></the-university>
+    @*<h1>Shop</h1>
+  <p>Count: @Model.Count()</p>
+  <div class="row">
+    @foreach (var p in Model)
+    {
+      <div class="col-md-3">
+        <div class="border bg-light rounded p-1">
+          <img src="~/img/@(p.ArtId).jpg" class="img-fluid" alt="@p.Artist" />
+          <h3>@p.Category - @p.Size</h3>
+          <ul class="products-props">
+            <li>Price: $@p.Price</li>
+            <li>Artist: @p.Artist</li>
+            <li>Title: @p.Title </li>
+            <li>Description: @p.ArtDescription</li>
+          </ul>
+          <button id="buyButton" class="btn btn-success">Buy</button>
+        </div>
+      </div>
+    }
+  </div>*@

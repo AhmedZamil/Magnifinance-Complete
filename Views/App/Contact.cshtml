@@ -1,0 +1,79 @@
+﻿@model ContactViewModel
+@{
+  ViewBag.Title = "Contact Us";
+}
+
+	<section class="signup-section spad">
+		<div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="signup-warp">
+						<div class="section-title text-white text-left">
+							<h2>Sign up to became a teacher</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+						</div>
+						<!-- signup form -->
+						<form class="signup-form">
+							<input type="text" placeholder="Your Name">
+							<input type="text" placeholder="Your E-mail">
+							<input type="text" placeholder="Your Phone">
+							<label for="v-upload" class="file-up-btn">Upload Course</label>
+							<input type="file" id="v-upload">
+							<button class="site-btn">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<div class="col-md-6 offset-md-3">
+  <div class="card card-body bg-light">
+    <form method="post">
+
+      <div asp-validation-summary="ModelOnly "> </div>
+
+      <div class="form-group">
+        <label asp-for="Name">Username:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input type="email" asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="Subject">Subject:</label>
+        <input type="text" asp-for="Subject" class="form-control" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="Message">Message:</label>
+        <textarea rows="4" asp-for="Message" class="form-control"></textarea>
+        <span asp-validation-for="Message" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"><i class='fas fa-envelope'></i> Send Message</button>
+        <div class="text-success">@ViewBag.UserMessage</div>
+      </div>
+    </form>
+  </div>
+</div>
+
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				<h2>Join Our Community Now!</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">Register Now</a>
+			</div>
+		</div>
+	</section>

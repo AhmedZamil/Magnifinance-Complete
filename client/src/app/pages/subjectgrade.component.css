@@ -1,0 +1,19 @@
+﻿.grade {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    background: #d82a4e;
+    display: inline-block;
+    padding: 13px 19px;
+    margin: 14px;
+}
+
+.page-info-course {
+    height: 143px;
+}
+
+.addcourse-btn {
+    margin-top: 40px;
+    float: left;
+    margin-right: 0;
+}

@@ -1,0 +1,43 @@
+﻿
+<section class="signup-section spad">
+    <div class="signup-bg set-bg" data-setbg="../../img/signup-bg.jpg" style="background-image: url('../../img/courses/signup-bg.jpg');"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="signup-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Add Course For Students</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <!-- signup form -->
+                    <!--<form class="signup-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your E-mail">
+                        <input type="text" placeholder="Your Phone">
+                        <label for="v-upload" class="file-up-btn">Upload Course</label>
+                        <input type="file" id="v-upload">
+                        <button class="site-btn">Search Couse</button>
+                    </form>-->
+
+                    <form class="signup-form" (submit)="addcourse()">
+                        <div class="form-group">
+                            <label for="courseName" >Course Name</label>
+                            <input type="text" placeholder="Course Name" class="form-control" name="name" #courseName="ngModel" [(ngModel)]="course.courseName" required />
+                            <div class="text-danger" *ngIf="courseName.touched && courseName.invalid && courseName.errors.required">Required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Course Title</label>
+                            <input type="text" placeholder="Course Title" class="form-control" #title="ngModel" name="title" [(ngModel)]="course.title" required />
+                            <div class="text-danger" *ngIf="title.touched && title.invalid && title.errors.required">Required</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="site-btn" value="Add" [disabled]="courseName.invalid || title.invalid" />
+                            <a routerLink="/course" class="btn btn-default">Cancel</a>
+                            <!--<a routerLink="/course" class="class="site-btn">Cancel</a>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

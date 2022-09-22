@@ -1,0 +1,57 @@
+﻿
+<section class="signup-section spad">
+    <div class="signup-bg set-bg" data-setbg="../../img/signup-bg.jpg"  style="background-image: url('../../img/authors/7.jpg');"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="signup-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Sign up to became a student</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                    </div>
+                    <!-- signup form -->
+                    <!--<form class="signup-form">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your E-mail">
+                        <input type="text" placeholder="Your Phone">
+                        <label for="v-upload" class="file-up-btn">Upload Course</label>
+                        <input type="file" id="v-upload">
+                        <button class="site-btn">Search Couse</button>
+                    </form>-->
+                    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+                    <form class="signup-form" (submit)="addstudent()">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" placeholder="First Name" class="form-control" name="firstName" #firstName="ngModel" [(ngModel)]="student.firstName" required />
+                            <div class="text-danger" *ngIf="firstName.touched && firstName.invalid && firstName.errors.required">Required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" placeholder="Last Name" class="form-control" #lastName="ngModel" name="lastName" [(ngModel)]="student.lastName" required />
+                            <div class="text-danger" *ngIf="lastName.touched && lastName.invalid && lastName.errors.required">Required</div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label for="subjectTitle">Subject Title</label>
+                            <input type="text" placeholder="Subject Title" class="form-control" #subjectTitle="ngModel" name="subjectTitle" [(ngModel)]="subject.subjectTitle" required />
+                            <div class="text-danger" *ngIf="subjectTitle.touched && subjectTitle.invalid && subjectTitle.errors.required">Required</div>
+                        </div>-->
+                        <!--<div class="form-group">
+                            <label for="courseId">Course</label>
+                            <select class="form-control" id="courseId" #courseId="ngModel"
+                                    name="courseId" [(ngModel)]="subject.courseId">
+                                <option *ngFor="let c of courseService.courses">
+                                    {{ c.courseId }}
+                                </option>
+                            </select>
+                        </div>-->
+                        <div class="form-group">
+                            <input type="submit" class="site-btn" value="Add" [disabled]="firstName.invalid || lastName.invalid" />
+                            <a routerLink="/student" class="btn btn-default">Cancel</a>
+                            <!--<a routerLink="/course" class="class="site-btn">Cancel</a>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
