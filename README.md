@@ -1,9 +1,10 @@
 # Recruiting a Full-Stack Developer - Technical Challenge
 
- ## Setup shortcut [Checked with different machine]
-It's Just to setup to all done Now..
-    1. Run the setup.bat file
-    2. After Running just browse http://localhost:5000/ ( when in bat file command prompt showing Building...)
+ # Setup shortcut [Checked with different machine]
+It's Just to setup to all done Now.
+
+    ## 1. Run the setup.bat file
+    ## 2. After Running just browse http://localhost:5000/ ( when in bat file command prompt showing Building...)
     
 [It will ensure navigate & install dependency for angular as well as for dotnet restore, installing dotnet ef ,add migration , update database , build & run the application with few Seed data]
 
