@@ -1,6 +1,10 @@
 ﻿.signalr{
     color: rgb(38 234 162)!important;
 }
+.sub-heading {
+    font-size:50% !important;
+    color:azure;
+}
 
 .headline{
     background-color: #2e2332 !important;
